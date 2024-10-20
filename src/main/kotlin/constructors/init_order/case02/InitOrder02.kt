@@ -4,7 +4,11 @@ open class Animal(name: String) {
     open val name: String = name
 
     init {
-        println("Animal name is: $name")
+        println("Animal name is : $name")
+    }
+
+    fun printName() {
+        println("name : $name")
     }
 }
 
@@ -17,5 +21,7 @@ class Dog(name: String): Animal(name) {
 
 fun main() {
     val animal = Animal("moving thing")
+    animal.printName()
     val dog = Dog("Golden Retriever")
+    dog.printName()
 }
