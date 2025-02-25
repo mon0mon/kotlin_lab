@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- -*- mode: sgml -*- -->
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+    <property name="PID" value="${pid:-${PID:-unknown}}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="config.ExtendedPatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>%d{"yyyy-MM-dd HH:mm:ss.SSS"} %highlight(%-5level) %magenta([%process_id]) - [%t] %yellow(%logger{39}) : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
